@@ -33,14 +33,13 @@ export default function RootLayout({
               <HomeIcon />
               <span>Fire Homes</span>
             </Link>
-            <ul>
+            <ul className="flex gap-6 items-center">
               <li>
                 <Link
                   className="uppercase tracking-widest hover:underline"
                   href="/property-search"
                 >
-                  {" "}
-                  Property search{" "}
+                  Property search
                 </Link>
               </li>
               <li>
