@@ -15,6 +15,7 @@ import Image from "next/image";
 
 export default function AuthButtons() {
   const auth = useAuth();
+
   return (
     <div>
       {!!auth?.currentUser && (
@@ -45,12 +46,16 @@ export default function AuthButtons() {
             <DropdownMenuItem asChild>
               <Link href="/account">My Account</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/admin-dashboard">Admin Dashboard</Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/account/my-favourites">My favorites</Link>
-            </DropdownMenuItem>
+            {!!auth.customClaims?.admin && (
+              <DropdownMenuItem asChild>
+                <Link href="/admin-dashboard">Admin Dashboard</Link>
+              </DropdownMenuItem>
+            )}
+            {!auth.customClaims?.admin && (
+              <DropdownMenuItem asChild>
+                <Link href="/account/my-favourites">My favorites</Link>
+              </DropdownMenuItem>
+            )}
             <DropdownMenuItem onClick={async () => await auth.logout()}>
               Logout
             </DropdownMenuItem>
