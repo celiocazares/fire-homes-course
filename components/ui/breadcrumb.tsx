@@ -5,6 +5,7 @@ import { ChevronRight, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
+// Breadcrumbs component was created on top of the shadcn breadcrumb
 const Breadcrumbs = ({
   items,
 }: {
@@ -14,10 +15,13 @@ const Breadcrumbs = ({
     <Breadcrumb>
       <BreadcrumbList>
         {items.map((item, i) => (
-          <BreadcrumbItem key={i}>
-            {!!item.href && <Link href={item.href}>{item.label}</Link>}
-            {!item.href && <BreadcrumbPage>{item.label}</BreadcrumbPage>}
-          </BreadcrumbItem>
+          <React.Fragment key={i}>
+            <BreadcrumbItem>
+              {!!item.href && <Link href={item.href}>{item.label}</Link>}
+              {!item.href && <BreadcrumbPage>{item.label}</BreadcrumbPage>}
+            </BreadcrumbItem>
+            {i < items.length - 1 && <BreadcrumbSeparator />}
+          </React.Fragment>
         ))}
       </BreadcrumbList>
     </Breadcrumb>
