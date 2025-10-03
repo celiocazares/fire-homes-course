@@ -8,11 +8,11 @@ export const propertyDataSchema = z.object({
     const postcodeRegex = /^(?:\d{5}-\d{3}|\d{8})$/;
     return postcodeRegex.test(postcode);
   }, "Invalid postcode format"),
-  price: z.coerce.number().positive("Price must be greater than zero"),
-  descript: z
+  price: z.number().positive("Price must be greater than zero"),
+  description: z
     .string()
     .min(40, "Description must contain at least 40 characters"),
-  bedrooms: z.coerce.number().min(0, "Bedrooms must be at least 0"),
-  bathrooms: z.coerce.number().min(0, "Bathrooms must be at least 0"),
+  bedrooms: z.number().min(0, "Bedrooms must be at least 0"),
+  bathrooms: z.number().min(0, "Bathrooms must be at least 0"),
   status: z.enum(["draft", "sale", "withdrawn", "sold"]),
 });

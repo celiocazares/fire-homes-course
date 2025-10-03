@@ -1,7 +1,12 @@
-"user client";
+"use client";
 
-import { propertyDataSchema } from "@/validation/propertySchema";
+import { createProperty } from "@/actions/property-actions";
+import PropertyForm from "@/components/property-form";
 
 export default function NewPropertyForm() {
-  return <div>new form</div>;
+  return (
+    <div>
+      <PropertyForm handleSubmit={createProperty} />
+    </div>
+  );
 }
