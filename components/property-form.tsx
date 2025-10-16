@@ -48,7 +48,10 @@ export default function PropertyForm({
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)}>
         <div className="grid grid-cols-2 gap-4">
-          <fieldset className="flex flex-col gap-2">
+          <fieldset
+            className="flex flex-col gap-2"
+            disabled={form.formState.isSubmitting}
+          >
             <FormField
               control={form.control}
               name="status"
@@ -65,7 +68,7 @@ export default function PropertyForm({
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="draft">Draft</SelectItem>
-                        <SelectItem value="for-sale">For Sale</SelectItem>
+                        <SelectItem value="sale">For Sale</SelectItem>
                         <SelectItem value="withdrawn">Withdrawn</SelectItem>
                         <SelectItem value="sold">Sold</SelectItem>
                       </SelectContent>
@@ -128,7 +131,10 @@ export default function PropertyForm({
               )}
             />
           </fieldset>
-          <fieldset className="flex flex-col gap-2">
+          <fieldset
+            className="flex flex-col gap-2"
+            disabled={form.formState.isSubmitting}
+          >
             <FormField
               control={form.control}
               name="price"
@@ -204,6 +210,7 @@ export default function PropertyForm({
         <Button
           className="max-w-md mx-auto mt-2 w-full flex gap-2"
           type="submit"
+          disabled={form.formState.isSubmitting}
         >
           {submitButtonLabel}
         </Button>

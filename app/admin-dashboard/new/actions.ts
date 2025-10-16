@@ -12,7 +12,7 @@ export const saveNewProperty = async (data: {
   price: number;
   bathrooms: number;
   bedrooms: number;
-  status: "for-sale" | "draft" | "withdrawn" | "sold";
+  status: "sale" | "draft" | "withdrawn" | "sold";
   token: string;
 }) => {
   const { token, ...propertyData } = data;
