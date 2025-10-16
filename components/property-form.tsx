@@ -155,7 +155,13 @@ export default function PropertyForm({
                 <FormItem>
                   <FormLabel>Bedrooms</FormLabel>
                   <FormControl>
-                    <Input {...field} type="number" />
+                    <Input
+                      {...field}
+                      onChange={(e) =>
+                        field.onChange(parseFloat(e.target.value) || 0)
+                      }
+                      type="number"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -168,7 +174,13 @@ export default function PropertyForm({
                 <FormItem>
                   <FormLabel>Bathrooms</FormLabel>
                   <FormControl>
-                    <Input {...field} type="number" />
+                    <Input
+                      {...field}
+                      onChange={(e) =>
+                        field.onChange(parseFloat(e.target.value) || 0)
+                      }
+                      type="number"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
